@@ -22,14 +22,15 @@ const feed_food = d3.csv("../data/feed_food.csv", function (d) {
 
 // Loading and cleaning food_production.csv
 const food_production = d3.csv("../data/food_production.csv", function (d) {
-  console.log(d);
   return {
-    product: d["Food product"],
-    emission: parseFloat(d["Total_emissions"]),
-    animal: parseFloat(d["Animal Feed"]),
-    packaging: parseFloat(d["Packging"]),
-    retail: parseFloat(d["Retail"]),
-    processing: parseFloat(d["Processing"]),
-    transport: parseFloat(d["Transport"]),
+    Product: d["Food product"],
+    Emission: parseFloat(d["Total_emissions"]),
+    "Feed animals": parseFloat(d["Animal Feed"]),
+    Packaging: parseFloat(d["Packging"]),
+    Retail: parseFloat(d["Retail"]),
+    Processing: parseFloat(d["Processing"]),
+    Transport: parseFloat(d["Transport"]),
   };
 });
+
+donut();
