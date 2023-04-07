@@ -11,3 +11,7 @@ This visualisation features 3 visualisations about CO2 emmissions of food produc
 https://www.kaggle.com/datasets/yoannboyere/co2-ghg-emissionsdata?resource=download
 https://www.kaggle.com/datasets/selfvivek/environment-impact-of-food-production
 https://www.kaggle.com/datasets/dorbicycle/world-foodfeed-production?datasetId=4787&sortBy=voteCount
+
+## Color palette :
+
+![Palette](./assets/palette.png)

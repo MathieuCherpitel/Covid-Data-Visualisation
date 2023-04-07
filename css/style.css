@@ -1,3 +1,65 @@
-.main_title {
-  color: red;
+html,
+body {
+  margin: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: #2e2d2d;
+}
+
+main {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 2px;
+}
+
+section {
+  transform-style: preserve-3d;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f8f7f9;
+}
+
+.no-parallax {
+  background-color: #2e2d2d;
+  z-index: 999;
+}
+
+.parallax {
+  background-color: #57c769;
+}
+
+section h1 {
+  text-align: center;
+  font-size: 4rem;
+  font-family: sans-serif;
+}
+
+.parallax h1 {
+  width: 60%;
+  font-size: 2rem;
+}
+
+.parallax::after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateZ(-1px) scale(1.5);
+  background-size: 100%;
+  z-index: -1;
+}
+
+@media screen and (min-width: 768px) {
+  section h1 {
+    font-size: 5rem;
+  }
+  .parallax h1 {
+    font-size: 4rem;
+  }
 }
