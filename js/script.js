@@ -33,4 +33,5 @@ const food_production = d3.csv("../data/food_production.csv", function (d) {
   };
 });
 
+// Section 1
 donut();
