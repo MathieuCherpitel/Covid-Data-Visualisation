@@ -35,3 +35,10 @@ const food_production = d3.csv("../data/food_production.csv", function (d) {
 
 // Section 1
 donut();
+sunburst();
+
+// Section 2
+// butterfly();
+
+// Section 3
+// choropleth();
