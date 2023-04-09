@@ -1,11 +1,11 @@
-const width = 500,
-  height = 500,
-  margin = 30;
+const donut_width = 500;
+const donut_height = 500;
+const donut_margin = 30;
 
-const svg = d3
+const donut_svg = d3
   .select("#donut")
   .append("g")
-  .attr("transform", `translate(${width / 2}, ${height / 2})`);
+  .attr("transform", `translate(${donut_width / 2}, ${donut_height / 2})`);
 
 const donut_tooltip = d3
   .select("body")
@@ -15,9 +15,9 @@ const donut_tooltip = d3
   .style("color", "#f8f7f9")
   .style("opacity", 0);
 
-const radius = Math.min(width, height) / 2 - margin;
+const donut_radius = Math.min(donut_width, donut_height) / 2 - donut_margin;
 
-const color = d3
+const donut_color = d3
   .scaleOrdinal()
   .range(["#a6d52e", "#378347", "#78ab82", "#bab3be", "#fcfcfa"]);
 
@@ -26,21 +26,20 @@ function donut() {
     const data = get_major_sources(d);
     const data_ready = get_data_ready(data, d);
 
-    svg
+    donut_svg
       .selectAll("whatever")
       .data(data_ready)
       .join("path")
-      .attr("d", d3.arc().innerRadius(130).outerRadius(radius))
+      .attr("d", d3.arc().innerRadius(130).outerRadius(donut_radius))
       .attr("fill", function (d) {
-        return color(d.data[1]);
+        return donut_color(d.data[1]);
       })
       .attr("stroke", "black")
       .attr("opacity", 0.8)
       .on("mouseover", mouseover)
       .on("mouseleave", mouseleave);
 
-    console.log(data_ready);
-    svg
+    donut_svg
       .selectAll(".arc")
       .data(data_ready)
       .join("path")
@@ -49,10 +48,10 @@ function donut() {
         d3
           .arc()
           .innerRadius(225)
-          .outerRadius(radius + 15)
+          .outerRadius(donut_radius + 15)
       )
       .attr("fill", function (d) {
-        return color(d.data[1]);
+        return donut_color(d.data[1]);
       })
       .attr("stroke", "black")
       .attr("id", function (d) {
@@ -73,12 +72,12 @@ function mouseover(event) {
   const centroid = d3
     .arc()
     .innerRadius(130)
-    .outerRadius(radius)
+    .outerRadius(donut_radius)
     .centroid(event_data);
 
   donut_tooltip
-    .style("left", centroid[0] + width - 35 + "px")
-    .style("top", centroid[1] + height + 125 + "px")
+    .style("left", centroid[0] + donut_width - 35 + "px")
+    .style("top", centroid[1] + donut_height + 125 + "px")
     .transition()
     .duration(200)
     .style("opacity", 1)
@@ -125,9 +124,9 @@ function make_legend(data) {
   }));
   const dataWithColor = legendData.map((d) => ({
     ...d,
-    color: color(d.source),
+    color: donut_color(d.source),
   }));
-  const legend = svg
+  const legend = donut_svg
     .selectAll(null)
     .data(dataWithColor)
     .enter()
