@@ -2,6 +2,8 @@
 
 <head>
   <script type="text/javascript" src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://d3js.org/d3-geo-projection.v3.min.js"></script>
+
   <title>Impact of food production</title>
   <link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
@@ -18,27 +20,20 @@
         style="margin-top: 50px"
       ></svg>
     </div>
-
-    <!-- <div class="donuts_container_left">
-      <h1>Environmental impact of food production</h1>
-      <div style="display: flex; justify-content: center">
-        <svg id="donut" width="500px" height="500px"></svg>
-      </div>
-      <h2 class="donut_title">
-        Origin of Co2 emissions for food production in the world
-      </h2>
-    </div>
-    <div class="donuts_container_right">
-      <div style="display: flex; justify-content: center">
-        <svg id="sunburst" width="500px" height="500px"></svg>
-      </div>
-    </div> -->
   </section>
   <section class="parallax">
     <img src="assets/butterfly_placeholder.png" />
   </section>
-  <section class="no-parallax">
-    <img src="assets/choropleth_placeholder.png" />
+  <section class="no-parallax" id="map_section">
+    <div style="display: flex; justify-content: center">
+      <svg
+        id="choropleth"
+        width="1000"
+        height="1000"
+        style="margin-top: 100px"
+      ></svg>
+      <div id="legend"></div>
+    </div>
   </section>
 
   <!-- secondary javascript files -->
@@ -46,6 +41,9 @@
   <script type="text/javascript" src="js/choropleth.js"></script>
   <script type="text/javascript" src="js/sunburst.js"></script>
   <script type="text/javascript" src="js/donut.js"></script>
+
+  <!-- Libs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.js"></script>
 
   <!-- main javascript file -->
   <script type="text/javascript" src="js/script.js"></script>

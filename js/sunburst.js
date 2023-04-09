@@ -3,7 +3,6 @@ function sunburst() {
     const width = 900;
     const height = 900;
     const radius = height / 2;
-
     const svg = d3
       .select("#sunburst")
       .append("g")

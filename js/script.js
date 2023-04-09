@@ -44,4 +44,4 @@ sunburst();
 // butterfly();
 
 // Section 3
-// choropleth();
+choropleth();
