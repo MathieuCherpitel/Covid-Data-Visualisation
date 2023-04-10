@@ -81,9 +81,9 @@ function sunburst() {
       .append("tspan")
       .attr("x", 0)
       .attr("y", 0)
-      .attr("dy", "3em")
+      .attr("dy", "2em")
       .attr("class", "sequence")
-      .attr("font-size", "2em");
+      .attr("font-size", "1.8em");
 
     const path = svg
       .append("g")
