@@ -1,9 +1,29 @@
 function choropleth() {
   let data = new Map();
-  const colorScale = d3
-    .scaleThreshold()
-    .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
-    .range(d3.schemeBlues[7]);
+
+  const colorScale = d3.scaleThreshold(
+    [
+      0, 100, 1000, 10000, 100000, 1000000, 5000000, 10000000, 50000000,
+      100000000, 500000000, 1000000000, 2000000000, 3000000000, 5000000000,
+    ],
+    [
+      "#A50026",
+      "#C51E26",
+      "#DF412F",
+      "#F16841",
+      "#F99254",
+      "#FDB869",
+      "#FDD884",
+      "#EBE78B",
+      "#D1EB86",
+      "#B0DD71",
+      "#8ACD67",
+      "#60BA61",
+      "#2FA255",
+      "#808080",
+      "#808080",
+    ].reverse()
+  );
 
   const tooltip = d3
     .select("#map_section")
@@ -58,6 +78,7 @@ function choropleth() {
       .attr("d", path)
       .attr("fill", function (d) {
         d.total = data.get(d.id) || 0;
+        console.log(colorScale(d.total));
         return colorScale(d.total);
       })
       .style("stroke", "white")
@@ -100,6 +121,15 @@ function choropleth() {
             compact_number(event.target.__data__.total)
         );
     }
+
+    d3.timer(function (elapsed) {
+      const rotate = projection.rotate();
+      const k = 20 / projection.scale();
+      projection.rotate([rotate[0] - 1 * k, rotate[1]]);
+      path = d3.geoPath().projection(projection);
+      svg.selectAll("path").attr("d", path);
+    }, 200);
+
     function mouseleave(event) {
       d3.selectAll("#country").transition().duration(200).style("opacity", 0.8);
       d3.select(this).transition().duration(200);

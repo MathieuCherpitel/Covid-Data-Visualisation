@@ -1,7 +1,7 @@
 function sunburst() {
   hierarchy_co2_emission.then((data) => {
-    const width = 900;
-    const height = 900;
+    const width = 800;
+    const height = 800;
     const radius = height / 2;
     const svg = d3
       .select("#sunburst")
@@ -66,7 +66,7 @@ function sunburst() {
       .attr("x", 0)
       .attr("y", 0)
       .attr("dy", "1.5em")
-      .text("of Co2 emissions");
+      .text("of CO2 emissions");
 
     label
       .append("tspan")
