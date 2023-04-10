@@ -171,7 +171,6 @@ function choropleth() {
     }
 
     function click(event) {
-      console.log(event);
       d3.selectAll("#country").style("stroke", "none");
       d3.select(this)
         .transition()
@@ -184,6 +183,7 @@ function choropleth() {
       d3.select(".donut")
         .select("h2")
         .text(event.target.__data__.properties.name);
+      get_lollipop_data(event.target.__data__.properties.name);
     }
 
     function compact_number(number) {
