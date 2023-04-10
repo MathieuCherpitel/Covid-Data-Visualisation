@@ -1,88 +1,53 @@
 <!DOCTYPE html>
-
 <head>
   <script type="text/javascript" src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="https://d3js.org/d3-geo-projection.v3.min.js"></script>
 
   <title>Impact of food production</title>
-  <link type="text/css" rel="stylesheet" href="css/style.css" />
-</head>
 
+  <link type="text/css" rel="stylesheet" href="css/style.css" />
+  <link type="text/css" rel="stylesheet" href="css/section1.css" />
+  <link type="text/css" rel="stylesheet" href="css/section2.css" />
+  <link type="text/css" rel="stylesheet" href="css/section3.css" />
+  <link type="text/css" rel="stylesheet" href="css/section4.css" />
+</head>
 <body>
-  <section class="no-parallax">
-    <h1>TITLE</h1>
-    <div id="sequence" style="background-color: grey"></div>
-    <div style="display: flex; justify-content: center">
-      <svg id="sunburst" width="800" height="800"></svg>
-    </div>
-    <div style="display: flex; justify-content: center; font-size: 1.5em">
-      <h2>Sources of CO2 emissions from food production</h2>
-    </div>
-    <div
-      style="
-        display: flex;
-        justify-content: right;
-        font-size: 1.3em;
-        margin-right: 20px;
-        opacity: 80%;
-        margin-top: 50px;
-      "
-    >
-      <p>Source : https://ourworldindata.org</p>
+  <section class="section1">
+    <h1>Carbon footprint of food production</h1>
+    <div class="arrow1">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
   </section>
-  <section class="parallax">
-    <img src="assets/butterfly_placeholder.png" />
-  </section>
-  <section class="no-parallax" id="map_section">
-    <div style="display: flex; justify-content: center">
-      <svg
-        id="choropleth"
-        width="1000"
-        height="1000"
-        style="margin-top: 100px"
-      ></svg>
-      <div id="legend"></div>
-    </div>
-    <div>
-      <h2 style="display: flex; justify-content: center; font-size: 2em">
-        Emission of CO2 (in tonnes)
-      </h2>
-    </div>
-    <div style="display: flex; justify-content: center">
+  <section class="section2">
+    <div class="globe">
+      <svg id="globe" width="700" height="700"></svg>
       <img id="play" src="assets/pause.png" width="50px" height="50px" />
-      <img
-        id="pause"
-        src="assets/play.png"
-        width="50px"
-        height="50px"
-        style="display: none"
-      />
+      <img id="pause" src="assets/play.png" width="50px" height="50px" />
+      <h2>Carbon emissions (in tonnes)</h2>
     </div>
-    <div
-      style="
-        display: flex;
-        justify-content: right;
-        font-size: 1.3em;
-        margin-right: 20px;
-        opacity: 80%;
-      "
-    >
-      <p>
-        Source :
-        https://ourworldindata.org/co2-and-other-greenhouse-gas-emissions
-      </p>
+    <div class="arrow2">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="donut">
+      <svg id="donut" width="500" height="500"></svg>
+      <h2>DONUT BABYYY</h2>
+    </div>
+  </section>
+  <section class="section3">
+    <div class="sunburst">
+      <svg id="sunburst" width="700px" height="700px"></svg>
+      <h2>Origin of CO2 emissions from food production</h2>
     </div>
   </section>
 
   <!-- secondary javascript files -->
   <script type="text/javascript" src="js/butterfly.js"></script>
-  <script type="text/javascript" src="js/choropleth.js"></script>
+  <script type="text/javascript" src="js/globe.js"></script>
   <script type="text/javascript" src="js/sunburst.js"></script>
   <script type="text/javascript" src="js/donut.js"></script>
-
-  <!-- Libs -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.min.js"></script>
 
   <!-- main javascript file -->
   <script type="text/javascript" src="js/script.js"></script>

@@ -71,13 +71,13 @@ function choropleth() {
     }),
   ]).then(function (load_data) {
     let topo = load_data[0];
-    const width = 1000;
-    const height = 1000;
+    const width = 700;
+    const height = 700;
     const sensitivity = 75;
 
     let projection = d3
       .geoOrthographic()
-      .scale(500)
+      .scale(350)
       .center([0, 0])
       .rotate([0, -30])
       .translate([width / 2, height / 2]);
@@ -85,11 +85,7 @@ function choropleth() {
     const initialScale = projection.scale();
     let path = d3.geoPath().projection(projection);
 
-    let svg = d3
-      .select("#choropleth")
-      .append("svg")
-      .attr("width", width)
-      .attr("height", height);
+    let svg = d3.select("#globe");
 
     svg
       .append("circle")

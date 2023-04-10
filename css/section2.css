@@ -1,0 +1,31 @@
+.section2 {
+  background-color: #426a5a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#pause {
+  display: none;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 700px;
+  margin-left: 50px;
+}
+
+h2 {
+  color: #f8f7f9;
+}
+
+.globe img {
+  margin-top: 15px;
+}
+
+.arrow2 {
+  top: 190%;
+  left: 50%;
+}

@@ -9,8 +9,8 @@ var rotation = 20;
 
 function sunburst() {
   hierarchy_co2_emission.then((data) => {
-    const width = 800;
-    const height = 800;
+    const width = 700;
+    const height = 700;
     const radius = height / 2;
     const svg = d3
       .select("#sunburst")
