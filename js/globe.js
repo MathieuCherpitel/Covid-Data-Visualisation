@@ -1,9 +1,11 @@
 var rotate_speed = 30;
+var selected_country = "England";
+d3.select(".donut").select("h2").text(selected_country);
 
 const play = d3.select("#play");
 const pause = d3.select("#pause");
 
-play.on("click", function () {
+function play_pause() {
   const playVisible = play.style("display") !== "none";
   rotate_speed = 0;
 
@@ -14,7 +16,9 @@ play.on("click", function () {
     play.style("display", "block");
     pause.style("display", "none");
   }
-});
+}
+
+play.on("click", play_pause);
 
 pause.on("click", function () {
   const pauseVisible = pause.style("display") !== "none";
@@ -108,8 +112,11 @@ function choropleth() {
         d.total = data.get(d.id) || 0;
         return colorScale(d.total);
       })
-      .style("stroke", "white")
-      .style("stroke-width", 0.3)
+      .style("stroke", function (d) {
+        if (d.properties.name == selected_country) {
+          return "black";
+        }
+      })
       .on("mouseover", mouseover)
       .on("mouseleave", mouseleave)
       .on("click", click);
@@ -165,6 +172,18 @@ function choropleth() {
 
     function click(event) {
       console.log(event);
+      d3.selectAll("#country").style("stroke", "none");
+      d3.select(this)
+        .transition()
+        .duration(200)
+        .style("stroke", "black")
+        .style("stroke-width", "2");
+      rotate_speed = 0;
+      play.style("display", "none");
+      pause.style("display", "block");
+      d3.select(".donut")
+        .select("h2")
+        .text(event.target.__data__.properties.name);
     }
 
     function compact_number(number) {
