@@ -7,7 +7,7 @@ body {
 }
 
 main {
-  height: 100vh;
+  /* height: 100vh; */
   overflow-x: hidden;
   overflow-y: auto;
   perspective: 2px;
@@ -15,7 +15,7 @@ main {
 
 section {
   transform-style: preserve-3d;
-  height: 100vh;
+  /* height: 100vh; */
   /* display: flex; */
   align-items: center;
   justify-content: center;
@@ -49,11 +49,4 @@ section h1 {
   .parallax h1 {
     font-size: 4rem;
   }
-}
-
-.donut_title {
-  display: flex;
-  justify-content: center;
-  font-size: 2rem;
-  text-align: center;
 }

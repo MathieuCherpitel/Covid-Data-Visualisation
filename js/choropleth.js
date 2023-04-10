@@ -1,3 +1,34 @@
+var rotate_speed = 30;
+
+const play = d3.select("#play");
+const pause = d3.select("#pause");
+
+play.on("click", function () {
+  const playVisible = play.style("display") !== "none";
+  rotate_speed = 0;
+
+  if (playVisible) {
+    play.style("display", "none");
+    pause.style("display", "block");
+  } else {
+    play.style("display", "block");
+    pause.style("display", "none");
+  }
+});
+
+pause.on("click", function () {
+  const pauseVisible = pause.style("display") !== "none";
+  rotate_speed = 20;
+
+  if (pauseVisible) {
+    pause.style("display", "none");
+    play.style("display", "block");
+  } else {
+    pause.style("display", "block");
+    play.style("display", "none");
+  }
+});
+
 function choropleth() {
   let data = new Map();
 
@@ -78,7 +109,6 @@ function choropleth() {
       .attr("d", path)
       .attr("fill", function (d) {
         d.total = data.get(d.id) || 0;
-        console.log(colorScale(d.total));
         return colorScale(d.total);
       })
       .style("stroke", "white")
@@ -106,7 +136,6 @@ function choropleth() {
     );
 
     function mouseover(event) {
-      console.log(event);
       d3.selectAll("#country").transition().duration(200).style("opacity", 0.5);
       d3.select(this).transition().duration(200).style("opacity", 1);
       tooltip
@@ -124,7 +153,7 @@ function choropleth() {
 
     d3.timer(function (elapsed) {
       const rotate = projection.rotate();
-      const k = 20 / projection.scale();
+      const k = rotate_speed / projection.scale();
       projection.rotate([rotate[0] - 1 * k, rotate[1]]);
       path = d3.geoPath().projection(projection);
       svg.selectAll("path").attr("d", path);

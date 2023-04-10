@@ -1,3 +1,12 @@
+function pause_rotation() {
+  rotation = 0;
+}
+function unpause_rotation() {
+  rotation = 20;
+}
+
+var rotation = 20;
+
 function sunburst() {
   hierarchy_co2_emission.then((data) => {
     const width = 800;
