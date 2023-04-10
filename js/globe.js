@@ -58,9 +58,9 @@ function choropleth() {
   const colorScale = d3.scaleThreshold(range, colors);
 
   const tooltip = d3
-    .select("#map_section")
+    .select(".globe")
     .append("div")
-    .attr("class", "map_tooltip")
+    .attr("class", "globe_tooltip")
     .style("position", "absolute")
     .style("opacity", 0);
 
@@ -111,7 +111,8 @@ function choropleth() {
       .style("stroke", "white")
       .style("stroke-width", 0.3)
       .on("mouseover", mouseover)
-      .on("mouseleave", mouseleave);
+      .on("mouseleave", mouseleave)
+      .on("click", click);
 
     svg
       .append("circle")
@@ -136,8 +137,8 @@ function choropleth() {
       d3.selectAll("#country").transition().duration(200).style("opacity", 0.5);
       d3.select(this).transition().duration(200).style("opacity", 1);
       tooltip
-        .style("left", event.x + 15 + "px")
-        .style("top", event.y - 28 + "px")
+        .style("left", event.x - 380 + "px")
+        .style("top", event.y + 800 + "px")
         .transition()
         .duration(400)
         .style("opacity", 1)
@@ -160,6 +161,10 @@ function choropleth() {
       d3.selectAll("#country").transition().duration(200).style("opacity", 0.8);
       d3.select(this).transition().duration(200);
       tooltip.transition().duration(300).style("opacity", 0);
+    }
+
+    function click(event) {
+      console.log(event);
     }
 
     function compact_number(number) {

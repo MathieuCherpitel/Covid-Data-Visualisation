@@ -37,7 +37,7 @@ const food_production = d3.csv("../data/food_production.csv", function (d) {
 const hierarchy_co2_emission = d3.json("../data/hierarchy_co2_emission.json");
 
 // Section 1
-donut();
+// donut();
 sunburst();
 
 // Section 2

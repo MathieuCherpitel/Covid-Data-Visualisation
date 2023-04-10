@@ -15,7 +15,6 @@ section {
 div[class^="arrow"] {
   position: absolute;
   transform: translate(-50%, -50%);
-  cursor: pointer;
 }
 
 div[class^="arrow"] span {
