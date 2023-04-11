@@ -14,7 +14,7 @@ section {
 
 div[class^="arrow"] {
   position: absolute;
-  transform: translate(-50%, -50%);
+  transform: translate(-56%, -50%);
 }
 
 div[class^="arrow"] span {
