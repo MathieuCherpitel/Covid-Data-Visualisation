@@ -147,7 +147,7 @@ function choropleth() {
       d3.select(this).transition().duration(200).style("opacity", 1);
       tooltip
         .style("left", event.x - 380 + "px")
-        .style("top", event.y + 800 + "px")
+        .style("top", event.y + 900 + "px")
         .transition()
         .duration(400)
         .style("opacity", 1)
