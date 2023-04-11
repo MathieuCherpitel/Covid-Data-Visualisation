@@ -1,6 +1,8 @@
 var rotate_speed = 30;
 var selected_country = "England";
-d3.select(".donut").select("h2").text(selected_country);
+d3.select(".lollipop")
+  .select("h2")
+  .text(selected_country + "'s food production");
 
 const play = d3.select("#play");
 const pause = d3.select("#pause");
@@ -180,10 +182,17 @@ function choropleth() {
       rotate_speed = 0;
       play.style("display", "none");
       pause.style("display", "block");
-      d3.select(".donut")
+      d3.select(".lollipop")
         .select("h2")
-        .text(event.target.__data__.properties.name);
-      get_lollipop_data(event.target.__data__.properties.name);
+        .text(event.target.__data__.properties.name + "'s food production");
+      feed_food.then(function (d) {
+        const selected_data = get_lollipop_data(
+          d,
+          event.target.__data__.properties.name
+        );
+        console.log(selected_data);
+        update(selected_data);
+      });
     }
 
     function compact_number(number) {
