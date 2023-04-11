@@ -2,7 +2,7 @@ var rotate_speed = 30;
 var selected_country = "England";
 d3.select(".lollipop")
   .select("h2")
-  .text(selected_country + "'s food production");
+  .text(selected_country + "'s food production (1000 tonnes)");
 
 const play = d3.select("#play");
 const pause = d3.select("#pause");
@@ -184,7 +184,10 @@ function choropleth() {
       pause.style("display", "block");
       d3.select(".lollipop")
         .select("h2")
-        .text(event.target.__data__.properties.name + "'s food production");
+        .text(
+          event.target.__data__.properties.name +
+            "'s food production (1000 tonnes)"
+        );
       feed_food.then(function (d) {
         const selected_data = get_lollipop_data(
           d,

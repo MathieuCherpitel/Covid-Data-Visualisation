@@ -83,7 +83,7 @@ function sunburst() {
       .attr("y", 0)
       .attr("dy", "2em")
       .attr("class", "sequence")
-      .attr("font-size", "1.8em");
+      .attr("font-size", "1.7em");
 
     const path = svg
       .append("g")
