@@ -14,3 +14,7 @@ https://www.kaggle.com/datasets/dorbicycle/world-foodfeed-production?datasetId=4
 ## Color palette :
 
 ![Palette](./assets/palette.png)
+
+## Demo :
+
+[Link](https://www.youtube.com/watch?v=z9M5PJfGuBM)
