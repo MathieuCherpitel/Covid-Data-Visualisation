@@ -17,4 +17,13 @@ https://www.kaggle.com/datasets/dorbicycle/world-foodfeed-production?datasetId=4
 
 ## Demo :
 
-[Link](https://www.youtube.com/watch?v=z9M5PJfGuBM)
+Page 1:
+![Page 1](./assets/demo1.png)
+
+Page 2:
+![Page 2](./assets/demo2.png)
+
+Page 3:
+![Page 3](./assets/demo3.png)
+
+Full demo video : [Link](https://www.youtube.com/watch?v=z9M5PJfGuBM)
